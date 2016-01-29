@@ -1,6 +1,6 @@
 {
   "name": "globalize-compiler-plus",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Includes all messages in the globalize-compiler process even if not statically referenced",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
   ],
   "bin": {
     "globalize-compiler-plus": "bin/globalize-compiler-plus"
-  },  
+  },
   "author": "Ley Publicier <publicier+npmspam@gmail.com>",
   "license": "MIT",
   "dependencies": {

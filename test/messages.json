@@ -1,0 +1,42 @@
+{
+	"root": {
+		"Home" : "Home",
+		"Welcome" : "Welcome",
+		"Login" : "Login",
+		"Go" : "Go",
+		"like": [
+			"{0, plural, offset:1",
+			"     =0 {Be the first to like this}",
+			"     =1 {You liked this}",
+			"    one {You and someone else liked this}",
+			"  other {You and # others liked this}",
+			"}"
+		]
+	},
+	"en": {},
+	"es": {
+		"Home" : "Casa",
+		"Welcome" : "Bienvenidos",
+		"Login" : "Entrar",
+		"Go" : "Vamos",
+		"like": [
+			"{0, plural, offset:1",
+			"     =0 {Ser el primero}",
+			"     =1 {Usted ha gustado este}",
+			"    one {Usted y otra persona han gustado este}",
+			"  other {Usted y # otras han gustado este}",
+			"}"
+		]
+	},
+	"de": {
+		"Welcome" : "Wilkomen",
+		"like": [
+			"{0, plural, offset:1",
+			"     =0 {Be the first to like this}",
+			"     =1 {You liked this}",
+			"    one {You and someone else liked this}",
+			"  other {You and # german folk liked this}",
+			"}"
+		]
+	}
+}

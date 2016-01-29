@@ -9,6 +9,9 @@
   "keywords": [
     "globalize-compiler"
   ],
+  "bin": {
+    "globalize-compiler-plus": "bin/globalize-compiler-plus"
+  },  
   "author": "Ley Publicier <publicier+npmspam@gmail.com>",
   "license": "MIT",
   "dependencies": {

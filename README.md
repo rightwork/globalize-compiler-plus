@@ -20,7 +20,7 @@ This solution aims to simplify and close the gap on the above issues.  I chose t
 
 # Usage
 
-The inputs provided to globalize-plus-compiler are of the same format of [globalize-compiler](https://github.com/jquery-support/globalize-compiler), with the exception of `locale` which can be a comma separated list, but isn't required.  Locales, when not provided, are derived from the messages.json file.
+The inputs provided to globalize-plus-compiler are of the same format of [globalize-compiler](https://github.com/jquery-support/globalize-compiler), with the exception of `locales` which can be a comma separated list, but isn't required.  Locales, when not provided, are derived from the messages.json file.
 
 Output is also exactly the same.  Compiled JS files that contain the formatters and messages for the application and locale.
 
@@ -32,7 +32,7 @@ Use npm scripts, gulp tasks, etc... to run this.
 
 > \> globalize-compiler-plus -m test/messages.json -o test/output/ test/*.js
 
-> \> ls -al test/output/
+> \> tree test/output/
 
     test/output/
       ├── formatters-de.js

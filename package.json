@@ -14,12 +14,19 @@
   },
   "author": "Ley Publicier <publicier+npmspam@gmail.com>",
   "license": "MIT",
+  "cldr-data-coverage": "full",
   "dependencies": {
     "cldr-data": "^28.0.3",
+    "globalize": "^1.1.0",
     "globalize-compiler": "^0.1.1"
   },
   "devDependencies": {
     "cldr-data": "^28.0.3",
+    "cldrjs": "^0.4.4",
+    "globalize": "^1.1.0",
     "mkdirp": "^0.5.1"
+  },
+  "peerDependencies": {
+    "cldr-data": ">=26"
   }
 }

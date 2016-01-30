@@ -65,10 +65,6 @@ var input = opts.argv.remain;
 var messages = opts.messages;
 var output = opts.output;
 
-if(input.length > 1){
-  return console.log( "For now, only one source input argument is allowed (i.e. *.js, or file.js)")
-}
-
 var messages = messages ? JSON.parse( fs.readFileSync( messages ) ) : null;
 
 // preferred to get locales from those defined in messages file

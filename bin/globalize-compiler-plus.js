@@ -9,8 +9,8 @@ var mkdirp = require('mkdirp');
 
 function help() {
   var out = [
-    "Usage: globalize-compiler-plus [-l LOCALES] -m MESSAGES_FILE -o DEST_DIR SRC_FILES",
-    "Example: globalize-compiler-plus -l en,fr,es,de -m test/messages.json -o test/output/ test/*.js",
+    "Usage: globalize-compiler-plus [-l LOCALES] -m MESSAGES_FILE -o DEST_DIR -a APP_ROOT SRC_FILES",
+    "Example: globalize-compiler-plus -l en,fr,es,de -m test/messages.json -a output/-o test/output/ test/*.js",
     "",
     " Default Locales used are those provided in messages.json file",
     "",
@@ -20,6 +20,7 @@ function help() {
     "  -l, --locales                  # Optional.  Comma separated list of specific locale(s) to override those in messages.json",
     "  -m, --messages MESSAGES_FILE   # Translation messages for internal locales (JSON format).",
     "  -o, --output DEST_DIR          # Outputs files of the form formatters-<locale>.js",
+    "  -a, --approot PATH             # For web helpers, the runtime, client side path to the directories the formatters will live.  See webpack-helper.js output for more",
     ""
   ];
 
@@ -31,13 +32,15 @@ var opts = nopt( {
   version: Boolean,
   locales: String,
   messages: path,
-  output: path
+  output: path,
+  approot : String
 }, {
   h: "--help",
   v: "--version",
   l: "--locales",
   m: "--messages",
-  o: "--output"
+  o: "--output",
+  a: "--approot"
 });
 var requiredOpts = true;
 
@@ -45,12 +48,12 @@ if ( opts.version ) {
   return console.log( pkg.version );
 }
 
-if ( !opts.messages || !opts.output ) {
+if ( !opts.approot || !opts.messages || !opts.output ) {
   requiredOpts = false;
 }
 
 var extraOptions = Object.keys( opts ).filter(function( option ) {
-  return !/help|version|locale|cldr|messages|output|argv/.test( option );
+  return !/help|version|locale|approot|cldr|messages|output|argv/.test( option );
 });
 
 if ( extraOptions.length ) {
@@ -64,6 +67,7 @@ if ( opts.help || !requiredOpts || extraOptions.length ) {
 var input = opts.argv.remain;
 var messages = opts.messages;
 var output = opts.output;
+var approot = opts.approot
 
 var messages = messages ? JSON.parse( fs.readFileSync( messages ) ) : null;
 
@@ -74,9 +78,21 @@ if(!opts.locales){
   var locales = opts.locales.split(',');
 }
 
-var bundleObj = GlobalizeCompilerPlus(input, messages, locales)
+var filesObj = GlobalizeCompilerPlus(input, messages, locales, approot)
+var bundleObj = filesObj.formatters
 
 mkdirp(output)
+
+// write helpers
+var filenames = Object.keys(filesObj)
+for (var f in filenames){
+  var filename = filenames[f]
+  if(filename == "formatters"){
+    continue
+  }
+  var filepath = path.join(output, filename)
+  fs.writeFileSync(filepath, filesObj[filename])
+}
 
 locales = Object.keys(bundleObj)
 for (var i in locales){

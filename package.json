@@ -1,6 +1,6 @@
 {
   "name": "globalize-compiler-plus",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Includes all messages in the globalize-compiler process even if not statically referenced",
   "main": "index.js",
   "scripts": {
@@ -17,15 +17,13 @@
   "cldr-data-coverage": "full",
   "dependencies": {
     "cldr-data": "^28.0.3",
-    "globalize": "^1.1.0",
-    "globalize-compiler": "^0.1.1"
-  },
-  "devDependencies": {
-    "cldr-data": "^28.0.3",
     "cldrjs": "^0.4.4",
     "globalize": "^1.1.0",
-    "mkdirp": "^0.5.1"
+    "globalize-compiler": "^0.1.1",
+    "mkdirp": "^0.5.1",
+    "nopt": "^3.0.6"
   },
+  "devDependencies": {},
   "peerDependencies": {
     "cldr-data": ">=26"
   }

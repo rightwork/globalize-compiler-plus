@@ -1,6 +1,6 @@
 {
   "name": "globalize-compiler-plus",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Includes all messages in the globalize-compiler process even if not statically referenced",
   "main": "index.js",
   "scripts": {

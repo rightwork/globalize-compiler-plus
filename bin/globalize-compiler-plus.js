@@ -100,7 +100,7 @@ for (var i in locales){
   if(locale == "root"){
     continue
   }
-  var filename = path.join(output, "formatters-" + locale + ".js")
+  var filename = path.join(output, "formatters-" + locale + ".js").replace('\\', '/')
   var bundle = bundleObj[locale]
   fs.writeFileSync(filename, bundle);
 }

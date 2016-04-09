@@ -1,10 +1,10 @@
 {
   "name": "globalize-compiler-plus",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Includes all messages in the globalize-compiler process even if not statically referenced",
   "main": "index.js",
   "scripts": {
-    "test": "echo"
+    "test": "bin/globalize-compiler-plus -m test/messages.json -a path/to/app/root -o test/output/ test/*.js"
   },
   "keywords": [
     "globalize-compiler"
